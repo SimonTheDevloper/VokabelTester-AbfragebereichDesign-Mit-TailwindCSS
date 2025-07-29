@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 
 <head>
@@ -6,13 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vokabeltrainer Start</title>
-  <link href="/dist/output.css" rel="stylesheet">
+  <link href="./dist/output.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="bg-blue-100 font-sans">
+<body class="bg-red-500 font-sans">
   <div class="flex min-h-screen flex-col items-center justify-center px-4">
-
     <!-- Kategorie Auswahl -->
     <div class="w-full max-w-md rounded-xl bg-blue-300 p-6 shadow-md">
       <form>
@@ -20,12 +19,14 @@
           <label for="kategorie" class="mb-2 block text-center text-2xl font-semibold text-slate-800">
             Wähle die Kategorie aus:
           </label>
-          <select id="testSelection" class="w-full rounded border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-400">
+          <select id="testSelection"
+            class="w-full rounded border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-400">
             <option value="">Bitte wählen...</option>
             <!-- Weitere Optionen hier -->
           </select>
         </div>
-        <button type="submit" class="w-full rounded-lg bg-blue-500 px-4 py-2 text-white font-semibold transition hover:bg-blue-600">
+        <button type="submit"
+          class="w-full rounded-lg bg-blue-500 px-4 py-2 font-semibold text-white transition hover:bg-blue-600">
           Vokabeltest starten
         </button>
       </form>
@@ -43,20 +44,17 @@
 
     <!-- Eingabefeld -->
     <div class="mt-6 w-full max-w-md">
-      <input 
-        type="text" 
-        placeholder="Übersetzung eingeben..." 
-        autofocus 
+      <input type="text" placeholder="Übersetzung eingeben..." autofocus
         class="w-full rounded-lg bg-blue-200 px-4 py-2 text-center text-lg font-medium text-slate-800 placeholder-slate-500 shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-400" />
     </div>
 
     <!-- Button -->
     <div class="mt-6 w-full max-w-md">
-      <button type="submit" class="w-full rounded-lg bg-blue-500 px-5 py-3 text-white font-semibold transition hover:bg-blue-600 shadow-md">
+      <button type="submit"
+        class="w-full rounded-lg bg-blue-500 px-5 py-3 font-semibold text-white shadow-md transition hover:bg-blue-600">
         Überprüfen
       </button>
     </div>
-
   </div>
 </body>
 

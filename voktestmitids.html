@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vokabel-Trainer</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link href="/dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="Vokabeltester.css" />
+
+    <link rel="manifest" href="/manifest.webmanifest" />
+</head>
+
+<body onload="checkJSONWörterBuchStatus()">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <span class="mdl-layout-title">Vokabel-Trainer</span>
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer"></div>
+                <!-- Navigation. We hide it in small screens. -->
+                <nav class="mdl-navigation mdl-layout--large-screen-only">
+                    <a class="mdl-navigation__link" href="index.html">Startseite</a>
+                    <a class="mdl-navigation__link" href="vokabeltester.html">Vokabel-Test</a>
+                    <a class="mdl-navigation__link" href="hinzufügen.html">Hinzufügen</a>
+                </nav>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Vokabel-Trainer</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="index.html">Startseite</a>
+                <a class="mdl-navigation__link" href="vokabeltester.html">Vokabel-Test</a>
+                <a class="mdl-navigation__link" href="hinzufügen.html">Hinzufügen</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="page-content">
+                <div class="flex min-h-screen flex-col items-center justify-center bg-blue-100 px-8">
+
+                    <div id="Vortschritt" class="Fortschritt-Bar"></div>
+                    <div class="mx-auto mt-10 w-full max-w-[440px] rounded-lg bg-blue-300 p-7 shadow-md">
+                        <form>
+                            <div class="mb-4">
+                                <label for="kategorie"
+                                    class="mb-2.5 block text-center text-2xl font-semibold text-slate-800"> Wähle die
+                                    Kategorie aus: </label>
+                                <select id="testSelection"
+                                    class="w-full rounded border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-sky-500 focus:outline-none">
+                                    <option value="">Bitte wählen...</option>
+                                    <!-- Optionen -->
+                                </select>
+                            </div>
+                            <button type="submit"
+                                class="w-full rounded bg-blue-400 px-4 py-2 font-semibold text-white transition hover:bg-blue-500">Vokabeltest
+                                starten</button>
+                        </form>
+                    </div>
+
+                    <div class="mx-auto mt-10 w-full max-w-[440px] rounded-lg bg-blue-300 p-6 shadow-md">
+                        <div class="flex items-center justify-center">
+                            <label for="kategorie"
+                                class="block text-center text-2xl font-semibold text-slate-800">Aktuelle Vokabel
+                                7/26</label>
+                        </div>
+                    </div>
+
+                    <div id="vokabelAbfrage"
+                        class="mx-auto mt-10 w-full max-w-[440px] rounded-lg bg-blue-300 p-11 shadow-md">
+                        <div class="flex items-center justify-center">
+                            <label for="kategorie" id="frageAnzeige"
+                                class="block text-center text-4xl font-semibold text-slate-800">Hallo</label>
+                        </div>
+                    </div>
+                    <div id="vokabelAbfrageInput"
+                        class="mx-auto mt-10 flex w-full max-w-[440px] items-center justify-center rounded-lg bg-blue-300 p-2 shadow-md">
+                        <input id="eingabeFeld" type="text" placeholder="Übersetzung eingeben..." autofocus
+                            class="w-full max-w-[420px] rounded-md bg-blue-200 px-4 py-1 text-center text-lg font-semibold text-slate-800 caret-blue-600 shadow-inner placeholder:text-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+                    </div>
+                    <div id="vokabelAfrageFeedback" class="VokTester-Feedback">
+                        <div id="feedbackAnzeige"></div>
+                    </div>
+                    <div id="checkButton" class="mx-auto mt-10 w-full max-w-[440px] rounded-lg bg-blue-300 shadow-md">
+                        <button type="submit"
+                            class="flex w-full items-center justify-center rounded-lg bg-blue-400 px-5 py-3 font-semibold text-white transition hover:bg-blue-500">Überprüfen</button>
+                    </div>
+                </div>
+                <div id="nextButton" class="mx-auto mt-10 w-full max-w-[440px] rounded-lg bg-blue-300 shadow-md">
+                    <button type="submit"
+                        class="flex w-full items-center justify-center rounded-lg bg-blue-400 px-5 py-3 font-semibold text-white transition hover:bg-blue-500">Überprüfen</button>
+                </div>
+            </div>
+
+            <div id="testZuendeBereich" class="FrageKasten" style="display: none">
+                <div id="testZuEnde">Der Test ist zuende</div>
+                <p>Du hast alle Fragen beantwortet</p>
+                <button id="zurückZuKategorie">Zurück</button>
+            </div>
+
+
+            <h2 id="text"></h2>
+            <div id="empty-message" style="display: none; text-align: center; margin-top: 50px">
+                <h2>😕 Wörterbuch ist leer</h2>
+                <p>Du hast noch keine Vokabeln hinzugefügt</p>
+                <button onclick="location.href='hinzufügen.html'"
+                    class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                    + Vokabel hinzufügen
+                </button>
+            </div>
+    </div>
+    </div>
+    </main>
+    </div>
+    <script src="script.js"></script>
+    <script type="module" src="vokabelabfrageUi.js"></script>
+</body>
+
+</html>

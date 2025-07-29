@@ -1,41 +1,45 @@
 <!doctype html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vokabeltrainer</title>
-    <link href="/dist/output.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
 
-  <body class="">
-    <div class="flex min-h-screen flex-col items-center justify-center px-4">
-      <!-- Fortschritt -->
-      <div class="w-full max-w-md rounded-xl bg-blue-300 p-4 text-center shadow-md">
-        <span class="text-xl font-semibold text-slate-800">Vokabel 7/26</span>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vokabeltrainer</title>
+  <link href="/dist/output.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-      <!-- Abfragewort -->
-      <div class="mt-6 w-full max-w-md rounded-xl bg-blue-300 p-8 text-center shadow-md">
-        <span class="text-4xl font-bold text-slate-800">Hallo</span>
-      </div>
-
-      <!-- Eingabefeld -->
-      <div class="mt-6 w-full max-w-md">
-        <input type="text" placeholder="Übersetzung eingeben..." autofocus class="w-full rounded-lg bg-blue-200 px-4 py-2 text-center text-lg font-medium text-slate-800 placeholder-slate-500 shadow-inner focus:ring-2 focus:ring-blue-400 focus:outline-none" />
-      </div>
-
-      <!-- Fehleranzeige -->
-      <div class="mt-4 w-full max-w-md rounded-lg bg-red-300/70 p-4 text-center shadow-md">
-        <p class="text-lg font-semibold text-red-900">❌ Das ist leider falsch.</p>
-        <p class="mt-1 text-base text-slate-800">Die korrekte Antwort lautet: <span class="font-bold">Hello</span></p>
-      </div>
-
-      <!-- Button -->
-      <div class="mt-6 w-full max-w-md">
-        <button type="submit" class="w-full rounded-lg bg-blue-500 px-5 py-3 font-semibold text-white shadow-md transition hover:bg-blue-600">Überprüfen</button>
-      </div>
+<body class="">
+  <div class="flex min-h-screen flex-col items-center justify-center px-4">
+    <!-- Fortschritt -->
+    <div class="w-full max-w-md rounded-xl bg-blue-300 p-4 text-center shadow-md">
+      <span class="text-xl font-semibold text-slate-800">Vokabel 7/26</span>
     </div>
-  </body>
+
+    <!-- Abfragewort -->
+    <div class="mt-6 p-8 w-full max-w-md rounded-xl bg-blue-300  text-center shadow-md">
+      <span class="text-4xl font-bold text-slate-800">Hallo</span>
+    </div>
+
+    <!-- Eingabefeld -->
+    <div class="mt-6 w-full max-w-md">
+      <input type="text" placeholder="Übersetzung eingeben..." autofocus
+        class="w-full rounded-lg bg-blue-200 px-4 py-2 text-center text-lg font-medium text-slate-800 placeholder-slate-500 shadow-inner focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+    </div>
+
+    <!-- Fehleranzeige -->
+    <div class="mt-4 w-full max-w-md rounded-lg bg-red-300/70 p-4 text-center shadow-md">
+      <p class="text-lg font-semibold text-red-900">❌ Das ist leider falsch.</p>
+      <p class="mt-1 text-base text-slate-800">Die korrekte Antwort lautet: <span class="font-bold">Hello</span></p>
+    </div>
+
+    <!-- Button -->
+    <div class="mt-6 w-full max-w-md">
+      <button type="submit"
+        class="w-full rounded-lg bg-blue-500 px-5 py-3 font-semibold text-white shadow-md transition hover:bg-blue-600">Überprüfen</button>
+    </div>
+  </div>
+</body>
+
 </html>
